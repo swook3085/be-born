@@ -43,11 +43,6 @@ const BackHeader = ({
     }
   }, [])
 
-  // {isMobile ? (
-  //   ) : (
-  //     <Navbar />
-  //   )}
-
   if (isMobile) {
     return (
       <div

@@ -1,6 +1,6 @@
 import Layout from '@components/layout/Layout'
 import { ReactElement, useRef } from 'react'
-import { useQuery } from 'react-query'
+import { QueryClient, dehydrate, useQuery } from 'react-query'
 import { AnimallKey } from '@shared/queryKey'
 import { selectPetList } from '@controller/petController'
 import { useRouter } from 'next/router'
@@ -13,6 +13,8 @@ import AnimalInfo from '@template/detail/AnimalInfo'
 import CareInfo from '@template/detail/CareInfo'
 import CareMap from '@template/detail/CareMap'
 import BackHeader from '@components/layout/BackHeader'
+import { GetServerSidePropsContext } from 'next'
+import { replaceHTTP } from '@shared/utils'
 
 interface IAnimalDetailProps extends IDetailParam {
   id: string
@@ -54,6 +56,15 @@ const AnimalDetail = () => {
 
   return (
     <>
+      <Head>
+        <title>Beborn</title>
+        <meta property='og:title' content={item?.noticeNo} />
+        <meta property='og:url' content={`www.be-born.net${router.asPath}`} />
+        <meta property='og:type' content='website' />
+        <meta property='og:image' content={replaceHTTP(item?.popfile || '')} />
+        <meta property='og:site_name' content='beBorn' />
+        <meta property='og:description' content={item?.happenPlace} />
+      </Head>
       <BackHeader title={item?.noticeNo || ''} viewRef={infoRef} />
       <Layout>
         <div className='lg:w-[729px] lg:mt-2 mx-auto'>
@@ -91,14 +102,37 @@ const AnimalDetail = () => {
 }
 
 AnimalDetail.layout = (page: ReactElement) => {
-  return (
-    <>
-      <Head>
-        <title>Beborn</title>
-      </Head>
-      {page}
-    </>
+  return <>{page}</>
+}
+
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  const { upKind, kind, uprCd, orgCd, bgnde, endde, page, limit, state, id } =
+    ctx.query
+  const queryClient = new QueryClient()
+  const params: IAnimalDetailProps = {
+    upKind: upKind as string,
+    kind: kind as string,
+    uprCd: uprCd as string,
+    orgCd: orgCd as string,
+    bgnde: bgnde as string,
+    endde: endde as string,
+    page: parseInt(page as string) || 1,
+    limit: limit as string,
+    state: state as string,
+    id: id as string,
+  }
+
+  const getData = async () => selectPetList(params)
+  await queryClient.prefetchQuery(
+    [AnimallKey.ANIMAL_DETAIL_LIST, params.id],
+    getData,
   )
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
 }
 
 export default AnimalDetail
