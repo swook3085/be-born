@@ -1,6 +1,8 @@
+import useDevice from '@shared/hooks/useDevice'
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
 import { RefObject, useEffect } from 'react'
+import Navbar from './NavBar'
 
 const BackHeader = ({
   title,
@@ -9,6 +11,7 @@ const BackHeader = ({
   title: string
   viewRef: RefObject<HTMLDivElement>
 }) => {
+  const { isMobile, isPc, isTablet } = useDevice()
   const headerRef = useRef<HTMLDivElement>(null)
   const [isTransparent, setTransparent] = useState(true)
   const { back } = useRouter()
@@ -40,25 +43,33 @@ const BackHeader = ({
     }
   }, [])
 
-  return (
-    <div
-      ref={headerRef}
-      className={`fixed z-50 h-[65px] w-full ${
-        isTransparent ? 'bg-[rgba(255,255,255,0)]' : 'bg-[#fff]'
-      }`}
-    >
-      <div className='top-[12px] left-2 absolute'>
-        <button onClick={() => back()}>
-          <BackIcon />
-        </button>
-      </div>
-      {isTransparent ? null : (
-        <div className='flex w-full h-full items-center justify-center'>
-          <p className='text-lg'>{title}</p>
+  // {isMobile ? (
+  //   ) : (
+  //     <Navbar />
+  //   )}
+
+  if (isMobile) {
+    return (
+      <div
+        ref={headerRef}
+        className={`fixed z-50 h-[65px] w-full ${
+          isTransparent ? 'bg-[rgba(255,255,255,0)]' : 'bg-[#fff]'
+        }`}
+      >
+        <div className='top-[12px] left-2 absolute'>
+          <button onClick={() => back()}>
+            <BackIcon />
+          </button>
         </div>
-      )}
-    </div>
-  )
+        {isTransparent ? null : (
+          <div className='flex w-full h-full items-center justify-center'>
+            <p className='text-lg'>{title}</p>
+          </div>
+        )}
+      </div>
+    )
+  }
+  return <Navbar show={isMobile || isTablet || isPc} />
 }
 
 export default BackHeader

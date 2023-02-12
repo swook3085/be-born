@@ -1,6 +1,5 @@
 import Layout from '@components/layout/Layout'
 import { ReactElement, useRef } from 'react'
-import Navbar from '@components/layout/NavBar'
 import { useQuery } from 'react-query'
 import { AnimallKey } from '@shared/queryKey'
 import { selectPetList } from '@controller/petController'
@@ -14,14 +13,12 @@ import AnimalInfo from '@template/detail/AnimalInfo'
 import CareInfo from '@template/detail/CareInfo'
 import CareMap from '@template/detail/CareMap'
 import BackHeader from '@components/layout/BackHeader'
-import useDevice from '@shared/hooks/useDevice'
 
 interface IAnimalDetailProps extends IDetailParam {
   id: string
 }
 
 const AnimalDetail = () => {
-  const { isMobile } = useDevice()
   const infoRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
   const { upKind, kind, uprCd, orgCd, bgnde, endde, page, limit, state, id } =
@@ -57,11 +54,7 @@ const AnimalDetail = () => {
 
   return (
     <>
-      {isMobile ? (
-        <BackHeader title={item?.noticeNo || ''} viewRef={infoRef} />
-      ) : (
-        <Navbar />
-      )}
+      <BackHeader title={item?.noticeNo || ''} viewRef={infoRef} />
       <Layout>
         <div className='lg:w-[729px] lg:mt-2 mx-auto'>
           <DtImage item={item} isFetching={isFetching} />
