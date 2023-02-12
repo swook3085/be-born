@@ -43,7 +43,7 @@ const BackHeader = ({
   return (
     <div
       ref={headerRef}
-      className={`fixed z-50 h-[65px] w-full bg-white ${
+      className={`fixed z-50 h-[65px] w-full ${
         isTransparent ? 'bg-[rgba(255,255,255,0)]' : 'bg-[#fff]'
       }`}
     >
