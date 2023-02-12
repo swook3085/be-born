@@ -43,10 +43,21 @@ const nextConfig = {
   async rewrites() {
     const url = 'http://api.vworld.kr/req/address'
     const apiKey = '5C21C2B8-8A8A-3E9B-89CD-160EB787B064'
+    const API_KEY =
+      'jxdNXHd7MviV0OG96kcvMLDsmrrUH4VJcJ5gizCALgi1jMmyz5tA4sJ3PCByGqHd381IPz3UCtTCnGuX0dOZgQ%3D%3D'
+    const API_URL = 'http://apis.data.go.kr/1543061/abandonmentPublicSrvc/'
     return [
       {
         source: '/api/location/:path*',
         destination: `${url}?service=address&request=getcoord&version=2.0&crs=epsg:4326&refine=true&simple=true&format=json&type=road&key=${apiKey}&address=:path*`,
+      },
+      {
+        source: '/api/sido/:path*',
+        destination: `${API_URL}sido?serviceKey=${API_KEY}:path*`,
+      },
+      {
+        source: '/api/abandonmentPublic/:path*',
+        destination: `${API_URL}abandonmentPublic?serviceKey=${API_KEY}&:path*`,
       },
     ]
   },

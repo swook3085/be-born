@@ -9,7 +9,8 @@ import {
   ISigunguItem,
   ISigunguParams,
 } from '@interface/IPet'
-import { getServiceURL } from '@shared/utils'
+import { getSearchURL, getServiceURL } from '@shared/utils'
+import axios from 'axios'
 
 export const selectSidoList = async (params: ISidoParams) => {
   const url = getServiceURL('sido', params)
@@ -71,10 +72,14 @@ export const selectPetList = async (
     state,
     pageNo: page,
     numOfRows: limit,
+    _type: 'json',
   }
-  const url = getServiceURL('abandonmentPublic', reqParams)
-  // console.log(url)
-  const response = await http.get(url)
+
+  const response = await http.get('/api/abandonmentPublic/', {
+    params: reqParams,
+  })
+
+  console.log(response)
   try {
     const list = response.data.response.body.items.item || []
     const page = response.data.response.body.pageNo || 0

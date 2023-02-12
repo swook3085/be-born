@@ -29,7 +29,7 @@ const CareMap = ({ item, isFetching }: IAnimalDetailChildProps) => {
       url,
     )
     const setCareAddrLocation = async () => {
-      const { status, data } = await axios.get(apiUrl)
+      const { status, data } = await axios.get(`/api/location/${item.careAddr}`)
       if (status === 200) {
         const { response } = data
         if (data && response && response.status === 'OK') {
