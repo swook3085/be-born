@@ -12,7 +12,7 @@ const DtImage = ({ item, isFetching }: IAnimalDetailChildProps) => {
 
   if (isFetching || item == null) {
     return (
-      <div className='animate-pulse flex items-center justify-center h-full lg:w-[729px] h-[300px] md:h-[500px] flex-0 bg-gray-300 lg:rounded-lg'>
+      <div className='animate-pulse flex items-center justify-center lg:w-[729px] h-[300px] md:h-[500px] flex-0 bg-gray-300 lg:rounded-lg'>
         <svg
           className='w-12 h-12 text-gray-200'
           xmlns='http://www.w3.org/2000/svg'
