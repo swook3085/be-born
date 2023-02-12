@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { Provider } from 'react-redux'
 import { ConfigProvider } from 'antd'
@@ -44,7 +44,9 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
         locale={locale}
       >
         <QueryClientProvider client={queryClient}>
-          {getLayout(<Component {...pageProps} />)}
+          <Hydrate state={pageProps.dehydratedState}>
+            {getLayout(<Component {...pageProps} />)}
+          </Hydrate>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </ConfigProvider>
