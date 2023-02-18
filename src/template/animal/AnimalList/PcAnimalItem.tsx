@@ -3,6 +3,7 @@ import KindImageIcon from './KindImageIcon'
 import { Badge } from './Badge'
 import { IAnimalListItemProps } from '@shared/interface/IPet'
 import {
+  converState,
   endDateBadgeType,
   getKindCdName,
   noticeDateDiff,
@@ -19,10 +20,11 @@ const PcAnimalItem = ({ item, detail }: IAnimalListItemProps) => {
   const goDetail = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     const param = {
-      ...detail,
       page: item.page,
       id: item.desertionNo,
       bgnde: item.happenDt,
+      state: converState(item.processState),
+      neuterYn: item.neuterYn,
     }
     push({
       pathname: 'detail',

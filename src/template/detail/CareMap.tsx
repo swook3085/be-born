@@ -30,7 +30,7 @@ const CareMap = ({ item, isFetching }: IAnimalDetailChildProps) => {
       url,
     )
     const setCareAddrLocation = async () => {
-      const { status, data } = await axios.get(apiUrl)
+      const { status, data } = await axios.get(`/api/location/${item.careAddr}`)
       if (status === 200) {
         const { response } = data
         if (data && response && response.status === 'OK') {
@@ -45,37 +45,10 @@ const CareMap = ({ item, isFetching }: IAnimalDetailChildProps) => {
     setCareAddrLocation()
   }, [item])
 
-  // useEffect(() => {
-  //   if (location == null) return
-  //   const initMap = () => {
-  //     const mapLocation = new naver.maps.LatLng(
-  //       location.latitude,
-  //       location.longitude,
-  //     )
-  //     const map = new naver.maps.Map('map', {
-  //       center: mapLocation,
-  //       zoom: 13,
-  //     })
-  //     const marker = new naver.maps.Marker({
-  //       position: mapLocation,
-  //       map,
-  //     })
-  //     const infowindows = new naver.maps.InfoWindow({
-  //       content: [
-  //         '<div class="p-2">',
-  //         `   <h3>${item?.careNm}</h3>`,
-  //         '</div>',
-  //       ].join(''),
-  //     })
-  //     infowindows.open(map, marker)
-  //   }
-
-  //   initMap()
-  // }, [location])
-
-  if (isFetching || item == null || location == null) {
+  if (isFetching || item == null) {
     return <div className='h-[300px] w-full animate-pulse bg-gray-200' />
   }
+  if (location == null) return <></>
 
   return (
     <Map

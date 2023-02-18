@@ -5,6 +5,7 @@ import KindImageIcon from './KindImageIcon'
 import { Badge } from './Badge'
 import Image from 'next/legacy/image'
 import {
+  converState,
   endDateBadgeType,
   getKindCdName,
   noticeDateDiff,
@@ -21,10 +22,11 @@ const MobileAnimalItem = forwardRef(
     const goDetail = (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault()
       const param = {
-        ...detail,
         page: item.page,
         id: item.desertionNo,
         bgnde: item.happenDt,
+        state: converState(item.processState),
+        neuterYn: item.neuterYn,
       }
       push({
         pathname: 'detail',

@@ -3,14 +3,15 @@ import { dateFormatDash, prevMonthYearStr } from '@shared/utils'
 
 export interface IDetailParam {
   bgnde: string
-  endde: string
-  upKind: string
-  uprCd: string
-  orgCd: string
-  kind: string
+  endde?: string
+  upKind?: string
+  uprCd?: string
+  orgCd?: string
+  kind?: string
   page: number
   limit: string
   state: string
+  neuterYn: string
 }
 
 export const detailParam = createSlice({

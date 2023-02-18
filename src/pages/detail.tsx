@@ -23,20 +23,32 @@ interface IAnimalDetailProps extends IDetailParam {
 const AnimalDetail = () => {
   const infoRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
-  const { upKind, kind, uprCd, orgCd, bgnde, endde, page, limit, state, id } =
-    router.query
+  const {
+    upKind,
+    kind,
+    uprCd,
+    orgCd,
+    bgnde,
+    endde,
+    page,
+    limit,
+    state,
+    id,
+    neuterYn,
+  } = router.query
 
   const params: IAnimalDetailProps = {
-    upKind: upKind as string,
-    kind: kind as string,
-    uprCd: uprCd as string,
-    orgCd: orgCd as string,
+    // upKind: upKind as string,
+    // kind: kind as string,
+    // uprCd: uprCd as string,
+    // orgCd: orgCd as string,
     bgnde: bgnde as string,
-    endde: endde as string,
+    // endde: endde as string,
     page: parseInt(page as string) || 1,
-    limit: limit as string,
+    limit: '1000',
     state: state as string,
     id: id as string,
+    neuterYn: neuterYn as string,
   }
   const getData = async () => selectPetList(params)
   const { data, isFetching } = useQuery(
@@ -106,20 +118,32 @@ AnimalDetail.layout = (page: ReactElement) => {
 }
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  const { upKind, kind, uprCd, orgCd, bgnde, endde, page, limit, state, id } =
-    ctx.query
+  const {
+    upKind,
+    kind,
+    uprCd,
+    orgCd,
+    bgnde,
+    endde,
+    page,
+    limit,
+    state,
+    id,
+    neuterYn,
+  } = ctx.query
   const queryClient = new QueryClient()
   const params: IAnimalDetailProps = {
-    upKind: upKind as string,
-    kind: kind as string,
-    uprCd: uprCd as string,
-    orgCd: orgCd as string,
+    // upKind: upKind as string,
+    // kind: kind as string,
+    // uprCd: uprCd as string,
+    // orgCd: orgCd as string,
     bgnde: bgnde as string,
-    endde: endde as string,
-    page: parseInt(page as string) || 1,
-    limit: limit as string,
+    // endde: endde as string,
+    page: 1,
+    limit: '1000',
     state: state as string,
     id: id as string,
+    neuterYn: neuterYn as string,
   }
 
   const getData = async () => selectPetList(params)

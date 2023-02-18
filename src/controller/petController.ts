@@ -61,6 +61,7 @@ export const selectPetList = async (
   const endde = params.endde // 검색 기간 종료
   const page = params.page // 페이지 번호
   const limit = params.limit // 페이지당 보여줄 개수
+  const neuterYn = params.neuterYn // 중성화여부
 
   const reqParams = {
     bgnde,
@@ -72,15 +73,13 @@ export const selectPetList = async (
     state,
     pageNo: page,
     numOfRows: limit,
+    neuter_yn: neuterYn,
     _type: 'json',
   }
 
-  const response = await http.get(
-    'https://www.be-born.net/api/abandonmentPublic/',
-    {
-      params: reqParams,
-    },
-  )
+  const response = await http.get('/api/abandonmentPublic/', {
+    params: reqParams,
+  })
   try {
     const list = response.data.response.body.items.item || []
     const page = response.data.response.body.pageNo || 0

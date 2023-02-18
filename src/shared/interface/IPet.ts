@@ -13,15 +13,16 @@ export interface IKindParams {
 }
 
 export interface IPetParams {
-  bgnde: string
-  endde: string
-  upKind: string
-  kind: string
-  uprCd: string
-  orgCd: string
+  bgnde?: string
+  endde?: string
+  upKind?: string
+  kind?: string
+  uprCd?: string
+  orgCd?: string
   state: string
   page: number
   limit: string
+  neuterYn: string
 }
 
 export interface ISelectKindItem {

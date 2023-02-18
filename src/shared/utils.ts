@@ -139,3 +139,11 @@ export const replaceHTTP = (source: string) => {
   }
   return source
 }
+
+export const converState = (state: string) => {
+  if (state === '공고중') {
+    return 'notice'
+  }
+
+  return ''
+}
