@@ -11,7 +11,7 @@ export interface IDetailParam {
   page: number
   limit: string
   state: string
-  neuterYn: string
+  neuterYn?: string
 }
 
 export const detailParam = createSlice({
@@ -26,6 +26,7 @@ export const detailParam = createSlice({
     page: 1,
     limit: '20',
     state: '',
+    neuterYn: '',
   },
   reducers: {
     setParam: (state, action) => {
@@ -36,6 +37,7 @@ export const detailParam = createSlice({
       state['bgnde'] = action.payload.bgnde
       state['endde'] = action.payload.endde
       state['page'] = action.payload.page
+      state['neuterYn'] = action.payload.neuterYn
     },
   },
 })
