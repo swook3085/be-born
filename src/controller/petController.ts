@@ -77,9 +77,12 @@ export const selectPetList = async (
     _type: 'json',
   }
   // 'https://www.be-born.net/api/abandonmentPublic/',
-  const response = await http.get('/api/abandonmentPublic/', {
-    params: reqParams,
-  })
+  const response = await http.get(
+    'https://www.be-born.net/api/abandonmentPublic/',
+    {
+      params: reqParams,
+    },
+  )
   try {
     const list = response.data.response.body.items.item || []
     const page = response.data.response.body.pageNo || 0
