@@ -22,7 +22,7 @@ export interface IPetParams {
   state: string
   page: number
   limit: string
-  neuterYn: string
+  neuterYn?: string
 }
 
 export interface ISelectKindItem {
