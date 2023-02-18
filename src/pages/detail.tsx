@@ -23,19 +23,7 @@ interface IAnimalDetailProps extends IDetailParam {
 const AnimalDetail = () => {
   const infoRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
-  const {
-    upKind,
-    kind,
-    uprCd,
-    orgCd,
-    bgnde,
-    endde,
-    page,
-    limit,
-    state,
-    id,
-    neuterYn,
-  } = router.query
+  const { bgnde, state, id, neuterYn } = router.query
 
   const params: IAnimalDetailProps = {
     // upKind: upKind as string,
@@ -44,7 +32,7 @@ const AnimalDetail = () => {
     // orgCd: orgCd as string,
     bgnde: bgnde as string,
     // endde: endde as string,
-    page: parseInt(page as string) || 1,
+    page: 1,
     limit: '1000',
     state: state as string,
     id: id as string,
@@ -118,19 +106,7 @@ AnimalDetail.layout = (page: ReactElement) => {
 }
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  const {
-    upKind,
-    kind,
-    uprCd,
-    orgCd,
-    bgnde,
-    endde,
-    page,
-    limit,
-    state,
-    id,
-    neuterYn,
-  } = ctx.query
+  const { bgnde, state, id, neuterYn } = ctx.query
   const queryClient = new QueryClient()
   const params: IAnimalDetailProps = {
     // upKind: upKind as string,

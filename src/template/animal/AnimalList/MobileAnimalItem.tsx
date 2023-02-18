@@ -22,7 +22,7 @@ const MobileAnimalItem = forwardRef(
     const goDetail = (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault()
       const param = {
-        page: item.page,
+        // page: item.page,
         id: item.desertionNo,
         bgnde: item.happenDt,
         state: converState(item.processState),

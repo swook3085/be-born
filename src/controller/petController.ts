@@ -76,7 +76,7 @@ export const selectPetList = async (
     neuter_yn: neuterYn,
     _type: 'json',
   }
-
+  // 'https://www.be-born.net/api/abandonmentPublic/',
   const response = await http.get('/api/abandonmentPublic/', {
     params: reqParams,
   })
