@@ -16,7 +16,7 @@ const Document = () => {
         />
         <script
           type='text/javascript'
-          src='https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=x2ojyebyl2'
+          src='//dapi.kakao.com/v2/maps/sdk.js?appkey=f11cdef7d37fa803c81368d3b354c5fb&libraries=services,clusterer'
         ></script>
       </Head>
       <body>

@@ -43,7 +43,7 @@ const MobileAnimalItem = forwardRef(
                 height={100}
                 quality={100}
                 objectFit='cover'
-                src={replaceHTTP(item.popfile)}
+                src={replaceHTTP(item.filename)}
                 className='rounded-lg'
                 alt={item.noticeNo}
               />

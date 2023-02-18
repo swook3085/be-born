@@ -2,6 +2,7 @@ import { IAnimalDetailChildProps } from '@shared/interface/IAnimalDetailChildPro
 import { getSearchURL } from '@shared/utils'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk'
 
 const CareMap = ({ item, isFetching }: IAnimalDetailChildProps) => {
   const [location, setLocation] = useState<{
@@ -44,39 +45,63 @@ const CareMap = ({ item, isFetching }: IAnimalDetailChildProps) => {
     setCareAddrLocation()
   }, [item])
 
-  useEffect(() => {
-    if (location == null) return
-    const initMap = () => {
-      const mapLocation = new naver.maps.LatLng(
-        location.latitude,
-        location.longitude,
-      )
-      const map = new naver.maps.Map('map', {
-        center: mapLocation,
-        zoom: 13,
-      })
-      const marker = new naver.maps.Marker({
-        position: mapLocation,
-        map,
-      })
-      const infowindows = new naver.maps.InfoWindow({
-        content: [
-          '<div class="p-2">',
-          `   <h3>${item?.careNm}</h3>`,
-          '</div>',
-        ].join(''),
-      })
-      infowindows.open(map, marker)
-    }
+  // useEffect(() => {
+  //   if (location == null) return
+  //   const initMap = () => {
+  //     const mapLocation = new naver.maps.LatLng(
+  //       location.latitude,
+  //       location.longitude,
+  //     )
+  //     const map = new naver.maps.Map('map', {
+  //       center: mapLocation,
+  //       zoom: 13,
+  //     })
+  //     const marker = new naver.maps.Marker({
+  //       position: mapLocation,
+  //       map,
+  //     })
+  //     const infowindows = new naver.maps.InfoWindow({
+  //       content: [
+  //         '<div class="p-2">',
+  //         `   <h3>${item?.careNm}</h3>`,
+  //         '</div>',
+  //       ].join(''),
+  //     })
+  //     infowindows.open(map, marker)
+  //   }
 
-    initMap()
-  }, [location])
+  //   initMap()
+  // }, [location])
 
-  if (isFetching || item == null) {
+  if (isFetching || item == null || location == null) {
     return <div className='h-[300px] w-full animate-pulse bg-gray-200' />
   }
 
-  return <div id='map' className='h-[300px] w-full' />
+  return (
+    <Map
+      draggable={false}
+      className='h-[300px] w-full'
+      center={{ lat: location.latitude, lng: location.longitude }}
+    >
+      <MapMarker
+        position={{ lat: location.latitude, lng: location.longitude }}
+      ></MapMarker>
+      <CustomOverlayMap
+        position={{ lat: location.latitude, lng: location.longitude }}
+        yAnchor={0.1}
+      >
+        <div className='customoverlay'>
+          <a
+            href={`https://map.kakao.com/link/map/${item.careNm},${location.latitude},${location.longitude}`}
+            target='_blank'
+            rel='noreferrer'
+          >
+            <span className='title'>{item.careNm}</span>
+          </a>
+        </div>
+      </CustomOverlayMap>
+    </Map>
+  )
 }
 
 export default CareMap
