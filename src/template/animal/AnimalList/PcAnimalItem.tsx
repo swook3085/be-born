@@ -22,6 +22,7 @@ const PcAnimalItem = ({ item, detail }: IAnimalListItemProps) => {
       ...detail,
       page: item.page,
       id: item.desertionNo,
+      bgnde: item.happenDt,
     }
     push({
       pathname: 'detail',

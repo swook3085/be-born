@@ -77,10 +77,10 @@ const AnimalDetail = () => {
             <h2 className='mb-2.5 text-lg mx-5'>보호소</h2>
             {/* 보호소 지도 영역 */}
             <CareMap item={item} isFetching={isFetching} />
+            {/* 보호소 정보 영역 */}
             <div className='mx-5 my-2'>
-              {/* 보호소 정보 영역 */}
               <CareInfo item={item} isFetching={isFetching} />
-              <hr className='my-4' />
+              {/* <hr className='my-4' />
               <h2 className='mb-2.5 text-md'>
                 {item?.careNm}에서 보호하고 있어요
               </h2>
@@ -92,7 +92,7 @@ const AnimalDetail = () => {
                   <div className='w-[130px] h-[130px] flex-none rounded-md bg-[#676c76]'></div>
                   <div className='w-[130px] h-[130px] flex-none rounded-md bg-[#676c76]'></div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

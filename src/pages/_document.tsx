@@ -1,3 +1,4 @@
+import Footer from '@components/layout/Footer'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 const Document = () => {
@@ -22,6 +23,7 @@ const Document = () => {
         <Main />
         <div id='portal' />
         <NextScript />
+        <Footer />
       </body>
     </Html>
   )

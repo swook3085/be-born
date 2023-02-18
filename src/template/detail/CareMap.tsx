@@ -61,7 +61,7 @@ const CareMap = ({ item, isFetching }: IAnimalDetailChildProps) => {
       })
       const infowindows = new naver.maps.InfoWindow({
         content: [
-          '<div class="iw_inner p-2">',
+          '<div class="p-2">',
           `   <h3>${item?.careNm}</h3>`,
           '</div>',
         ].join(''),

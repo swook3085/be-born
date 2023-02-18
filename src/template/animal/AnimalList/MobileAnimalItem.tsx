@@ -24,6 +24,7 @@ const MobileAnimalItem = forwardRef(
         ...detail,
         page: item.page,
         id: item.desertionNo,
+        bgnde: item.happenDt,
       }
       push({
         pathname: 'detail',
