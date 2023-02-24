@@ -28,7 +28,7 @@ export const usePetList = (props: ISelectPetList) => {
       limit: PAGE_LIMIT.toString(),
       state: '',
     }
-    console.log('params', params)
+    // console.log('params', params)
     dispatch(setParam(params))
     return await selectPetList(params)
   }
@@ -75,7 +75,7 @@ export const usePagiPetList = (props: ISelectPetList) => {
       limit: PAGE_LIMIT.toString(),
       state: '',
     }
-    console.log('params', params)
+    // console.log('params', params)
     dispatch(setParam(params))
     return await selectPetList(params)
   }

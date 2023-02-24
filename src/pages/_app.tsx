@@ -34,23 +34,26 @@ type AppPropsWithLayout = AppProps & {
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.layout ?? ((page) => page)
   return (
-    <Provider store={store}>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorPrimary: '#ECB04D',
-          },
-        }}
-        locale={locale}
-      >
-        <QueryClientProvider client={queryClient}>
-          <Hydrate state={pageProps.dehydratedState}>
-            {getLayout(<Component {...pageProps} />)}
-          </Hydrate>
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-      </ConfigProvider>
-    </Provider>
+    <>
+      <meta name='viewport' content='width=device-width, initial-scale=1' />
+      <Provider store={store}>
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: '#ECB04D',
+            },
+          }}
+          locale={locale}
+        >
+          <QueryClientProvider client={queryClient}>
+            <Hydrate state={pageProps.dehydratedState}>
+              {getLayout(<Component {...pageProps} />)}
+            </Hydrate>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryClientProvider>
+        </ConfigProvider>
+      </Provider>
+    </>
   )
 }
 

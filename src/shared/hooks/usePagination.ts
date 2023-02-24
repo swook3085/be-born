@@ -1,6 +1,6 @@
 import { IPaginationProps } from '@shared/interface/IPagination'
 import { useEffect, useState } from 'react'
-import { division } from '..'
+import { division } from '@shared/utils'
 
 const usePagination = ({ total, page = 1, onPageChange }: IPaginationProps) => {
   const [_page, setPage] = useState<number>(page)
@@ -11,7 +11,12 @@ const usePagination = ({ total, page = 1, onPageChange }: IPaginationProps) => {
     const pageList = Array.from({ length: Math.ceil(total / 20) }).map(
       (_dt, i) => i + 1,
     )
-    setRangeList(division(pageList, 10))
+    const list = division(pageList, 10)
+    setRangeList(list)
+    const rangeIdx = list.findIndex(
+      (num) => num.findIndex((cNum) => cNum === _page) > -1,
+    )
+    setRange(rangeIdx)
   }, [total])
 
   useEffect(() => {

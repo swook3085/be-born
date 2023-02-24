@@ -31,7 +31,6 @@ AnimalMain.layout = (page: ReactElement) => {
           name='description'
           content='유기된 동물들을 소개합니다. 사지말고 입양하자'
         />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <Navbar>
         <FilterButton />
