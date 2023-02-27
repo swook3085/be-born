@@ -12,6 +12,7 @@ import '../../styles/layout.css'
 import { store } from '@modules/store/store'
 import { NextPage } from 'next'
 import { ReactElement, ReactNode } from 'react'
+import Head from 'next/head'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,7 +36,9 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.layout ?? ((page) => page)
   return (
     <>
-      <meta name='viewport' content='width=device-width, initial-scale=1' />
+      <Head>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+      </Head>
       <Provider store={store}>
         <ConfigProvider
           theme={{

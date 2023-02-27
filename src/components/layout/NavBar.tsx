@@ -15,7 +15,7 @@ const Navbar = ({ children, show = true }: INavbarProps) => {
       }flex h-[65px] justify-center top-0 z-50 shadow-sm bg-white sticky border-b border-gray-200`}
     >
       <div className='w-[1280px] overflow-hidden flex justify-between px-4'>
-        <h1 className='text-2xl font-bold tracking-tight text-gray-900'>
+        <h1 className='text-2xl font-bold tracking-tight text-gray-900 flex items-center'>
           <Link href='/'>Beborn</Link>
         </h1>
         <div className='flex items-center'>{children}</div>
