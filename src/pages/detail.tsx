@@ -105,34 +105,34 @@ AnimalDetail.layout = (page: ReactElement) => {
   return <>{page}</>
 }
 
-// export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-//   const { bgnde, state, id, neuterYn, upKind } = ctx.query
-//   const queryClient = new QueryClient()
-//   const params: IAnimalDetailProps = {
-//     upKind: upKind as string,
-//     // kind: kind as string,
-//     // uprCd: uprCd as string,
-//     // orgCd: orgCd as string,
-//     bgnde: bgnde as string,
-//     endde: bgnde as string,
-//     page: 1,
-//     limit: '1000',
-//     state: state as string,
-//     id: id as string,
-//     neuterYn: neuterYn as string,
-//   }
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  const { bgnde, state, id, neuterYn, upKind } = ctx.query
+  const queryClient = new QueryClient()
+  const params: IAnimalDetailProps = {
+    upKind: upKind as string,
+    // kind: kind as string,
+    // uprCd: uprCd as string,
+    // orgCd: orgCd as string,
+    bgnde: bgnde as string,
+    endde: bgnde as string,
+    page: 1,
+    limit: '1000',
+    state: state as string,
+    id: id as string,
+    neuterYn: neuterYn as string,
+  }
 
-//   const getData = async () => selectPetList(params)
-//   await queryClient.prefetchQuery(
-//     [AnimallKey.ANIMAL_DETAIL_LIST, params.id],
-//     getData,
-//   )
+  const getData = async () => selectPetList(params)
+  await queryClient.prefetchQuery(
+    [AnimallKey.ANIMAL_DETAIL_LIST, params.id],
+    getData,
+  )
 
-//   return {
-//     props: {
-//       dehydratedState: dehydrate(queryClient),
-//     },
-//   }
-// }
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
+}
 
 export default AnimalDetail
