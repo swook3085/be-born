@@ -1,5 +1,5 @@
 import { selectKindList } from '@controller/petController'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import CntWrap from '../CntWrap'
 import KindButton, { IKindButtonProps } from './KindButton'
@@ -25,7 +25,7 @@ const KindWrap = styled.div`
 
 const KindContainer = () => {
   const defKindList = useRef<IKindButtonProps[]>([
-    { value: '', title: '모든 동물', type: 'all' },
+    // { value: '', title: '모든 동물', type: 'all' },
     { value: '417000', title: '강아지', type: 'dog' },
     { value: '422400', title: '고양이', type: 'cat' },
   ])
@@ -87,6 +87,10 @@ const KindContainer = () => {
   const onKindClick = (value: string) => {
     dispatch(setKind(value))
   }
+
+  useEffect(() => {
+    onClick(_upKind)
+  }, [])
 
   return (
     <>

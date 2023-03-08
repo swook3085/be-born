@@ -13,20 +13,26 @@ import {
 } from '@shared/utils'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+import { ReducerType } from '@modules/store/rootReducer'
+import { ISearchFilter } from '@modules/store/slices/searchFilter'
 
 const MobileAnimalItem = forwardRef(
-  ({ item, detail }: IAnimalListItemProps, ref: LegacyRef<HTMLDivElement>) => {
+  ({ item }: IAnimalListItemProps, ref: LegacyRef<HTMLDivElement>) => {
     const { push } = useRouter()
     const { kindCd, noticeSdt, noticeEdt, careNm } = item
-
+    const { _upKind } = useSelector<ReducerType, ISearchFilter>(
+      (state) => state.sliceSearchFilter,
+    )
     const goDetail = (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault()
       const param = {
-        // page: item.page,
+        page: item.page,
         id: item.desertionNo,
         bgnde: item.happenDt,
         state: converState(item.processState),
         neuterYn: item.neuterYn,
+        upKind: _upKind,
       }
       push({
         pathname: 'detail',

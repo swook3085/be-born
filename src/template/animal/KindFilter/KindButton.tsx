@@ -45,7 +45,7 @@ const ImagWrap = styled.div`
 `
 
 export interface IKindButtonProps {
-  type?: 'dog' | 'cat' | 'all'
+  type?: 'dog' | 'cat'
   title: string
   active?: boolean
   value?: string
@@ -53,7 +53,7 @@ export interface IKindButtonProps {
 }
 
 const KindButton = ({
-  type = 'all',
+  type = 'dog',
   title,
   onClick,
   active = false,

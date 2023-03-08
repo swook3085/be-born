@@ -80,7 +80,6 @@ export interface IAnimalListItem {
 
 export interface IAnimalListItemProps {
   item: IAnimalListItem
-  detail: IDetailParam
 }
 
 export interface IAnimalListResponse {

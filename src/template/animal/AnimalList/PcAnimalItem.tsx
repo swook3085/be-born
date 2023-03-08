@@ -12,15 +12,22 @@ import {
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { MouseEvent } from 'react'
+import { useSelector } from 'react-redux'
+import { ReducerType } from '@modules/store/rootReducer'
+import { ISearchFilter } from '@modules/store/slices/searchFilter'
 
-const PcAnimalItem = ({ item, detail }: IAnimalListItemProps) => {
+const PcAnimalItem = ({ item }: IAnimalListItemProps) => {
   const { push } = useRouter()
   const { kindCd, noticeSdt, noticeEdt, careNm } = item
+  const { _upKind } = useSelector<ReducerType, ISearchFilter>(
+    (state) => state.sliceSearchFilter,
+  )
 
   const goDetail = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     const param = {
       // page: item.page,
+      upKind: _upKind,
       id: item.desertionNo,
       bgnde: item.happenDt,
       state: converState(item.processState),

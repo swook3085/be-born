@@ -26,7 +26,7 @@ export interface ISearchFilter {
 export const searchFilter = createSlice({
   name: 'searchFilter',
   initialState: {
-    upKind: '',
+    upKind: '417000',
     kind: '',
     sido: '',
     sigungu: '',
@@ -37,7 +37,7 @@ export const searchFilter = createSlice({
     sigunguList: [{ value: '', label: '전체' }],
     startDate: prevMonthYearStr(3),
     endDate: dateFormatDash(new Date()),
-    _upKind: '',
+    _upKind: '417000',
     _kind: '',
     _sido: '',
     _sigungu: '',
