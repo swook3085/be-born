@@ -34,7 +34,7 @@ const AnimalDetail = () => {
     endde: bgnde as string,
     page: 1,
     limit: '1000',
-    state: state as string,
+    state: 'notice',
     id: id as string,
     neuterYn: neuterYn as string,
   }
@@ -117,7 +117,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
     endde: bgnde as string,
     page: 1,
     limit: '1000',
-    state: state as string,
+    state: 'notice',
     id: id as string,
     neuterYn: neuterYn as string,
   }
