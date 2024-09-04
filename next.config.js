@@ -2,7 +2,6 @@
 const nextConfig = {
   reactStrictMode: false,
   experimental: {
-    reactCompiler: true,
     ppr: 'incremental',
     scrollRestoration: true
   },
