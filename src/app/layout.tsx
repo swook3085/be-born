@@ -1,6 +1,6 @@
 import './globals.css'
 
-import { Footer, Header } from '@beborn/components'
+import { Footer, Header } from '@beborn/components/Layout'
 import ReactQueryProviders from '@beborn/shared/providers/QueryProvider'
 import type { Metadata } from 'next'
 
