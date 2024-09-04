@@ -1,5 +1,6 @@
 import './globals.css'
 
+import Header from '@beborn/components/Layout/Header'
 // import { Footer, Header } from '@beborn/components/Layout'
 import ReactQueryProviders from '@beborn/shared/providers/QueryProvider'
 import type { Metadata } from 'next'
@@ -17,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body>
-        {/* <Header /> */}
+        <Header />
         <div className='bg-white'>
           <main className='mx-auto max-w-7xl'>
             <ReactQueryProviders>{children}</ReactQueryProviders>

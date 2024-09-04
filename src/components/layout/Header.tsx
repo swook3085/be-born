@@ -7,7 +7,7 @@ interface IHeaderProps {
   children?: ReactNode
 }
 
-export const Header = ({ children, show = true }: IHeaderProps) => {
+const Header = ({ children, show = true }: IHeaderProps) => {
   return (
     <header
       className={`${
@@ -23,3 +23,5 @@ export const Header = ({ children, show = true }: IHeaderProps) => {
     </header>
   )
 }
+
+export default Header
