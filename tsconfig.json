@@ -20,7 +20,7 @@
       }
     ],
     "paths": {
-      "@beborn/*": ["./src/*"]
+      "@beborn/*": ["src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
