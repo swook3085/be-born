@@ -1,0 +1,15 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "standard.enable": false,
+  "eslint.enable": true,
+  "eslint.format.enable": false,
+  "prettier.enable": true,
+  // https://github.com/renke/import-sort/tree/master
+  "sort-imports.default-sort-style": "module"
+}

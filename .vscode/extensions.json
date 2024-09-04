@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "esbenp.prettier-vscode",
+    "unifiedjs.vscode-mdx",
+    "bradlc.vscode-tailwindcss",
+    "amatiasq.sort-imports"
+  ]
+}
