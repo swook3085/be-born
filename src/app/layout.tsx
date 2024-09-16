@@ -2,6 +2,7 @@ import './globals.css'
 
 import { Footer, Header } from '@beborn/components/layout'
 import ReactQueryProviders from '@beborn/shared/providers/QueryProvider'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        <SpeedInsights />
       </body>
     </html>
   )
