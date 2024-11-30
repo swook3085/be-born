@@ -1,7 +1,7 @@
 'use client'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-// import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { useState } from 'react'
 
 export default function ReactQueryProviders({
@@ -16,7 +16,7 @@ export default function ReactQueryProviders({
 
             // above 0 to avoid refetching immediately on the client
 
-            staleTime: 60 * 1000
+            staleTime: 60 * 1000 * 5
           }
         }
       })
@@ -26,7 +26,7 @@ export default function ReactQueryProviders({
     <QueryClientProvider client={queryClient}>
       {children}
 
-      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
 }

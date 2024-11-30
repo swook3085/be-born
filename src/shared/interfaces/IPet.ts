@@ -78,6 +78,7 @@ export interface IAnimalListItem {
 
 export interface IAnimalListItemProps {
   item: IAnimalListItem
+  index: number
 }
 
 export interface IAnimalListResponse {

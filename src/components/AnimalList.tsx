@@ -26,12 +26,12 @@ const AnimalList = () => {
   const total = data?.total || 0
 
   return (
-    <div className='mx-auto px-12'>
+    <>
       <div className='grid columns-3xs grid-cols-4 gap-x-12 gap-y-8'>
         {isFetching
           ? skeletonArray.map((_data, i) => <PAnimalItemSkl key={i} />)
-          : animalList.map((item) => (
-              <PcAnimalItem key={item.noticeNo} item={item} />
+          : animalList.map((item, index) => (
+              <PcAnimalItem key={item.noticeNo} item={item} index={index} />
             ))}
       </div>
       <div className='mt-4'>
@@ -41,7 +41,7 @@ const AnimalList = () => {
           onPageChange={(page) => dispatch(setPage(page))}
         /> */}
       </div>
-    </div>
+    </>
   )
 }
 

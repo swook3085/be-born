@@ -16,7 +16,11 @@ const nextConfig = {
     }
   },
   images: {
-    domains: ['www.animal.go.kr'],
+    remotePatterns: [
+      {
+        hostname: 'www.animal.go.kr'
+      }
+    ],
     minimumCacheTTL: 60 * 60 * 24 * 365
   }
 }

@@ -11,11 +11,10 @@ const KindImageIcon = ({ kindCd }: { kindCd: string }) => {
   }
   return (
     <Image
-      layout='intrinsic'
       width={15}
       height={15}
       quality={100}
-      objectFit='cover'
+      className='object-cover'
       src={imgSrc.current}
       alt={imgArt.current}
     />

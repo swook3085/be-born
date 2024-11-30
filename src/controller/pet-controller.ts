@@ -66,8 +66,8 @@ export const selectPetList = async (
   const neuterYn = params.neuterYn // 중성화여부
 
   const reqParams = {
-    bgnde,
-    endde,
+    // bgnde,
+    // endde,
     // upkind: upKind,
     // kind,
     // upr_cd: uprCd,
