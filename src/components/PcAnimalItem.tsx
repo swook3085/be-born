@@ -49,11 +49,11 @@ const PcAnimalItem = ({ item, index }: IAnimalListItemProps) => {
             alt={item.noticeNo}
           />
         </Link>
-        <figcaption>
-          <h2 className='my-2 h-5 text-base font-medium text-gray-900'>
+        <figcaption className='pt-2'>
+          <h2 className='mx-1 mb-2 h-5 text-base font-medium text-gray-900'>
             {item.noticeNo}
           </h2>
-          <div className='h-4.5 m-1 cursor-default truncate text-sm'>
+          <div className='m-1 h-5 cursor-default truncate text-sm'>
             <div className='flex items-center'>
               <KindImageIcon kindCd={kindCd} />
               <p className='ml-1 text-black'>{getKindCdName(kindCd)}</p>
@@ -62,7 +62,7 @@ const PcAnimalItem = ({ item, index }: IAnimalListItemProps) => {
           <p className='m-1 h-4 cursor-default truncate text-sm text-black'>
             {item.age} · {item.weight}
           </p>
-          <p className='bottom-0 mt-2 cursor-default truncate text-sm text-[#676c76]'>
+          <p className='bottom-0 mt-2 h-5 cursor-default truncate text-sm text-[#676c76]'>
             <Badge type={endDateBadgeType(noticeSdt, noticeEdt)}>
               종료 {noticeDateDiff(noticeSdt, noticeEdt)}일 전
             </Badge>

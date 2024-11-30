@@ -34,13 +34,13 @@ const AnimalList = () => {
               <PcAnimalItem key={item.noticeNo} item={item} index={index} />
             ))}
       </div>
-      <div className='mt-4'>
-        {/* <Pagination
+      {/* <div className='mt-4'> */}
+      {/* <Pagination
           total={total}
           page={page}
           onPageChange={(page) => dispatch(setPage(page))}
         /> */}
-      </div>
+      {/* </div> */}
     </>
   )
 }
