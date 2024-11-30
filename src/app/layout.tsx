@@ -17,14 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body>
+      <body className='bg-white'>
         <Header />
-        <div className='bg-white'>
-          <main className='mx-auto max-w-7xl'>
-            <ReactQueryProviders>{children}</ReactQueryProviders>
-          </main>
-          <Footer />
-        </div>
+        <main className='mx-auto max-w-7xl'>
+          <ReactQueryProviders>{children}</ReactQueryProviders>
+        </main>
+        <Footer />
         <SpeedInsights />
       </body>
     </html>

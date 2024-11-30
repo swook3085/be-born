@@ -11,6 +11,7 @@ interface IHeaderProps {
 export const Header = ({ children, show = true }: IHeaderProps) => {
   return (
     <header
+      tabIndex={-1}
       className={clsx(
         'sticky top-0 z-50 flex h-[65px] justify-center border-b border-gray-200 bg-white shadow-sm',
         {
