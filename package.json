@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "static": "node ./static-path.js",
     "dev": "next dev --turbo",
     "build": "next build -d",
     "start": "next start",
@@ -23,6 +24,7 @@
     "@vercel/speed-insights": "^1.0.12",
     "babel-plugin-react-compiler": "^0.0.0-experimental-e68eda9-20240829",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.5",
     "eslint": "^8",
     "eslint-config-next": "^15",
     "postcss": "^8",

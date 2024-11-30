@@ -74,11 +74,10 @@ export const selectPetList = async (
     // org_cd: orgCd,
     state,
     pageNo: page,
-    numOfRows: limit,
+    numOfRows: limit
     // neuter_yn: neuterYn,
-    _type: 'json'
   }
-  const url = getServiceURL('abandonmentPublic', reqParams)
+  const url = getServiceURL('animal', reqParams)
   // 'https://www.be-born.net/api/abandonmentPublic/',
   // const response = await http.get(
   //   'https://www.be-born.net/api/abandonmentPublic/',

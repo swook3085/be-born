@@ -1,15 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import { env } from '@beborn/config'
+import { rewrites } from '@beborn/config/rewrites'
+import { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
   reactStrictMode: false,
   experimental: {
     reactCompiler: true,
     ppr: 'incremental',
     scrollRestoration: true
   },
-  env: {
-    PET_API_KEY: process.env.PET_API_KEY,
-    PET_API_URL: process.env.PET_API_HOST + process.env.PET_API_BASEURL
-  },
+  env,
   logging: {
     fetches: {
       fullUrl: true
@@ -22,7 +22,8 @@ const nextConfig = {
       }
     ],
     minimumCacheTTL: 60 * 60 * 24 * 365
-  }
+  },
+  rewrites
 }
 
 module.exports = nextConfig
