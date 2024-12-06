@@ -8,7 +8,7 @@ export const rewrites: NextConfig['rewrites'] = async () => {
     /** 시군구 조회 */
     {
       source: '/api/sigungu',
-      destination: `${API_URL}sigungu?serviceKey=${key}&_type=json`
+      destination: `${API_URL}/sigungu?serviceKey=${key}&_type=json`
     },
     /** 동물 리스트 조회 */
     {

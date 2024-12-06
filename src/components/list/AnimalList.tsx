@@ -3,8 +3,8 @@
 import { usePagiPetList } from '@beborn/shared/querys/animal-list'
 import { useRef } from 'react'
 
-import PcAnimalItem from './PcAnimalItem'
-import PAnimalItemSkl from './skeleton/PAnimalItemSkl'
+import AnimalItem from './AnimalItem'
+import AnimalItemSkelton from './AnimalItemSkelton'
 
 const AnimalList = () => {
   const skeletonArray = useRef(Array.from({ length: 20 })).current
@@ -27,11 +27,11 @@ const AnimalList = () => {
 
   return (
     <>
-      <div className='grid columns-3xs grid-cols-4 gap-x-12 gap-y-8'>
+      <div className='grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-5'>
         {isFetching
-          ? skeletonArray.map((_data, i) => <PAnimalItemSkl key={i} />)
+          ? skeletonArray.map((_data, i) => <AnimalItemSkelton key={i} />)
           : animalList.map((item, index) => (
-              <PcAnimalItem key={item.noticeNo} item={item} index={index} />
+              <AnimalItem key={item.noticeNo} item={item} index={index} />
             ))}
       </div>
       {/* <div className='mt-4'> */}

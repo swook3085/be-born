@@ -12,9 +12,9 @@
   "dependencies": {
     "@tanstack/react-query": "^5.53.1",
     "dayjs": "^1.11.13",
-    "next": "^15.0.4-canary.32",
-    "react": "^19.0.0-rc.1",
-    "react-dom": "^19.0.0-rc.1"
+    "next": "^15.0.4-canary.45",
+    "react": "^19",
+    "react-dom": "^19"
   },
   "devDependencies": {
     "@tanstack/react-query-devtools": "^5.62.0",

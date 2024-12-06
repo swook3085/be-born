@@ -1,8 +1,8 @@
-const PAnimalItemSkl = () => {
+const AnimalItemSkelton = () => {
   return (
-    <div role='status' className='hidden animate-pulse justify-center lg:flex'>
-      <div className='w-52 rounded-lg'>
-        <div className='flex-0 flex h-52 w-52 items-center justify-center rounded-lg bg-gray-300'>
+    <div role='status' className='animate-pulse justify-center lg:flex'>
+      <div className='w-40 rounded-lg lg:w-52'>
+        <div className='flex-0 flex h-40 w-40 items-center justify-center rounded-lg bg-gray-300 lg:h-52 lg:w-52'>
           <svg
             className='h-12 w-12 text-gray-200'
             xmlns='http://www.w3.org/2000/svg'
@@ -16,7 +16,7 @@ const PAnimalItemSkl = () => {
           </svg>
         </div>
         <div className='pt-2'>
-          <div className='mx-1 mb-2 h-5 w-[180px] rounded-full bg-gray-200'></div>
+          <div className='mx-1 mb-2 h-5 w-36 rounded-full bg-gray-200 lg:w-[180px]'></div>
           <div className='m-1 h-5 w-[140px] rounded-full bg-gray-200'></div>
           <div className='m-1 h-4 w-[120px] rounded-full bg-gray-200'></div>
           <div className='bottom-0 mx-1 mt-2 flex h-5'>
@@ -30,4 +30,4 @@ const PAnimalItemSkl = () => {
   )
 }
 
-export default PAnimalItemSkl
+export default AnimalItemSkelton
