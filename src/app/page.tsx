@@ -1,4 +1,4 @@
-import AnimalList from '@beborn/components/list/AnimalList'
+import { AnimalList } from '@beborn/components/list'
 
 export const experimental_ppr = true
 export const dynamic = 'force-static'

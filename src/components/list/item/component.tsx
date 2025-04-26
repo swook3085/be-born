@@ -1,3 +1,5 @@
+import { Badge } from '@beborn/components/Badge'
+import KindImageIcon from '@beborn/components/KindImageIcon'
 import {
   endDateBadgeType,
   getKindCdName,
@@ -8,9 +10,6 @@ import { IAnimalListItemProps } from '@beborn/shared/interfaces/IPet'
 import Image from 'next/image'
 import Link from 'next/link'
 import { MouseEvent } from 'react'
-
-import { Badge } from '../Badge'
-import KindImageIcon from '../KindImageIcon'
 
 const AnimalItem = ({ item, index }: IAnimalListItemProps) => {
   const { kindCd, noticeSdt, noticeEdt, careNm } = item

@@ -1,10 +1,9 @@
 'use client'
 
+import { AnimalItem } from '@beborn/components/list/item'
+import { AnimalItemSkelton } from '@beborn/components/list/skeleton'
 import { usePagiPetList } from '@beborn/shared/querys/animal-list'
 import { useRef } from 'react'
-
-import AnimalItem from './AnimalItem'
-import AnimalItemSkelton from './AnimalItemSkelton'
 
 const AnimalList = () => {
   const skeletonArray = useRef(Array.from({ length: 20 })).current
@@ -13,7 +12,7 @@ const AnimalList = () => {
   //   ISearchFilter
   // >((state) => state.sliceSearchFilter)
   // const dispatch = useDispatch()
-  const { data, isFetching, isLoading } = usePagiPetList({
+  const { data, isFetching } = usePagiPetList({
     startDate: '2024.08.01',
     endDate: '2024.08.31',
     upKind: '422400',
@@ -27,7 +26,7 @@ const AnimalList = () => {
 
   return (
     <>
-      <div className='grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-5'>
+      <div className='grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5'>
         {isFetching
           ? skeletonArray.map((_data, i) => <AnimalItemSkelton key={i} />)
           : animalList.map((item, index) => (
