@@ -1,1 +1,1 @@
-export { default as AnimalList } from './component'
+export { AnimalList } from './component'

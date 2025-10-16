@@ -22,7 +22,7 @@ export const Badge = ({ children, type = 'info' }: IBadgeProps) => {
 
   return (
     <span
-      className={`inline-block h-5 whitespace-nowrap px-2.5 text-center align-baseline text-[12px] font-medium leading-5 ${color.current} ${textColor.current} rounded-full`}
+      className={`inline-block h-5 whitespace-nowrap px-2 text-center align-baseline text-xs font-medium leading-5 ${color.current} ${textColor.current} rounded-full`}
     >
       {children}
     </span>

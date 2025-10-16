@@ -2,10 +2,10 @@ import { isCat } from '@beborn/shared'
 import Image from 'next/image'
 import { useRef } from 'react'
 
-const KindImageIcon = ({ kindCd }: { kindCd: string }) => {
+const KindImageIcon = ({ upKindCd }: { upKindCd: string }) => {
   const imgSrc = useRef<string>('/images/happydog.png')
   const imgArt = useRef<string>('개')
-  if (isCat(kindCd)) {
+  if (isCat(upKindCd)) {
     imgSrc.current = '/images/happycat.png'
     imgArt.current = '고양이'
   }

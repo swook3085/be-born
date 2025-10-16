@@ -1,24 +1,24 @@
-import {
+import type {
   IAnimalListItem,
   IAnimalListResponse,
   IKindParams,
   IPetParams,
-  IPetResponse,
   ISelectKindItem,
   ISidoItem,
   ISidoParams,
   ISigunguItem,
   ISigunguParams
-} from '@beborn/shared/interfaces/IPet'
+} from '@beborn/shared/interfaces'
 import { baseFetch, getServiceURL } from '@beborn/shared/utils'
 
 export const selectSidoList = async (params: ISidoParams) => {
   const url = getServiceURL('sido', params)
-  const response = await baseFetch<IPetResponse<ISidoItem[]>>(url)
+  const response = await baseFetch<ISidoItem[]>(url)
   try {
     const list = response?.items || []
     return list
   } catch (error) {
+    console.error(error)
     return []
   }
 }
@@ -26,12 +26,13 @@ export const selectSidoList = async (params: ISidoParams) => {
 export const selectSigunguList = async (params: ISigunguParams) => {
   const { uprCd } = params
   const url = getServiceURL('sigungu', { upr_cd: uprCd })
-  const response = await baseFetch<IPetResponse<ISigunguItem[]>>(url)
+  const response = await baseFetch<ISigunguItem[]>(url)
 
   try {
     const list = response.items.item || []
     return list
   } catch (error) {
+    console.error(error)
     return []
   }
 }
@@ -41,12 +42,13 @@ export const selectKindList = async (params: IKindParams) => {
   const url = getServiceURL('kind', {
     up_kind_cd: upKindCd
   })
-  const response = await baseFetch<IPetResponse<ISelectKindItem[]>>(url)
+  const response = await baseFetch<ISelectKindItem[]>(url)
 
   try {
     const list = response.items.item || []
     return list
   } catch (error) {
+    console.error(error)
     return []
   }
 }
@@ -86,7 +88,7 @@ export const selectPetList = async (
   //   }
   // )
 
-  const response = await baseFetch<IPetResponse<IAnimalListItem[]>>(url)
+  const response = await baseFetch<IAnimalListItem[]>(url)
 
   try {
     const list = response.items.item || []
@@ -96,6 +98,7 @@ export const selectPetList = async (
     console.log('list', response)
     return { list, page, total }
   } catch (error) {
+    console.error(error)
     return { list: [], page: 0, total: 0 }
   }
 }

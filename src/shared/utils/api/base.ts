@@ -3,12 +3,13 @@ import {
   HttpHeader,
   HttpMethod
 } from '@beborn/shared/constants/http'
+import type { IPetResponse } from '@beborn/shared/interfaces'
 const { CONTENT_TYPE } = HttpHeader
 
 export type FnCustomFetch = <T = unknown>(
   url: string,
   option?: RequestInit
-) => Promise<T>
+) => Promise<IPetResponse<T>>
 
 /**
  * 기본 fetch
@@ -34,7 +35,7 @@ export const fetchInterface: FnCustomFetch = async (url, option) => {
 
     return response
   } catch (error) {
-    throw error
+    console.error(error)
   }
 }
 

@@ -1,25 +1,15 @@
 import dayjs from 'dayjs'
 
-/** 품종 이름 획득 */
-export const getKindCdName = (kindCd: string) => {
-  const aIndex = kindCd.indexOf('[') + 1
-  const bIndex = kindCd.indexOf(']')
-  const cIndex = kindCd.indexOf(']') + 2
-  const dIndex = kindCd.length
-  return `[${kindCd.substring(aIndex, bIndex)}] ${kindCd.substring(
-    cIndex,
-    dIndex
-  )}`
-}
+import { AnimallKindCode } from '../constants'
 
 /** 고양이 여부 */
-export const isCat = (kindCd: string) => {
-  return kindCd.indexOf('고양이') > -1
+export const isCat = (upKindCd: string) => {
+  return upKindCd === AnimallKindCode.CAT
 }
 
 /** 강이지 여부 */
-export const isDog = (kindCd: string) => {
-  return kindCd.indexOf('개') > -1
+export const isDog = (upKindCd: string) => {
+  return upKindCd === AnimallKindCode.DOG
 }
 
 export const noticeDateDiff = (noticeSdt: string, noticeEdt: string) => {

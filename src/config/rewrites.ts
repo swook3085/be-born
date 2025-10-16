@@ -13,7 +13,7 @@ export const rewrites: NextConfig['rewrites'] = async () => {
     /** 동물 리스트 조회 */
     {
       source: '/api/animal',
-      destination: `${API_URL}/abandonmentPublic?serviceKey=${key}&_type=json`
+      destination: `${API_URL}/abandonmentPublic_v2?serviceKey=${key}&_type=json`
     }
   ]
 }

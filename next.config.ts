@@ -18,10 +18,12 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'www.animal.go.kr'
+        protocol: 'http',
+        hostname: 'openapi.animal.go.kr'
       }
     ],
-    minimumCacheTTL: 60 * 60 * 24 * 365
+    minimumCacheTTL: 60 * 60 * 24 * 365,
+    unoptimized: true
   },
   rewrites
 }

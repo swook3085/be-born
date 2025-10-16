@@ -1,9 +1,5 @@
 import { noticeDateDiff } from './pet'
 
-export const classNames = (...classes: string[]) => {
-  return classes.filter(Boolean).join(' ')
-}
-
 export const division = <T>(arr: T[], chunk: number) => {
   const length = arr.length
   const divide =
@@ -15,14 +11,6 @@ export const division = <T>(arr: T[], chunk: number) => {
   }
 
   return newArray
-}
-
-export const replaceHTTP = (source: string) => {
-  const url = source
-  if (url.substring(0, 4) === 'http') {
-    return source.replace(/^(http?)?/, 'https')
-  }
-  return source
 }
 
 type badgeType = 'info' | 'warning' | 'danger'
