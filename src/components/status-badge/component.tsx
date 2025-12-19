@@ -26,3 +26,4 @@ export const StatusBadge = ({ children, type = 'info' }: IStatusBadgeProps) => {
   )
 }
 
+
