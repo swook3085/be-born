@@ -1,12 +1,10 @@
-import { env } from '@beborn/config'
-import { rewrites } from '@beborn/config/rewrites'
+import { env, rewrites } from 'config'
 import { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
+  reactCompiler: true,
   experimental: {
-    reactCompiler: true,
-    ppr: 'incremental',
     scrollRestoration: true
   },
   env,

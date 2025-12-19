@@ -68,12 +68,12 @@ export const selectPetList = async (
   const neuterYn = params.neuterYn // 중성화여부
 
   const reqParams = {
-    // bgnde,
-    // endde,
-    // upkind: upKind,
-    // kind,
-    // upr_cd: uprCd,
-    // org_cd: orgCd,
+    bgnde,
+    endde,
+    upkind: upKind,
+    kind,
+    upr_cd: uprCd,
+    org_cd: orgCd,
     state,
     pageNo: page,
     numOfRows: limit

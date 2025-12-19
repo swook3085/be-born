@@ -19,7 +19,7 @@ export const AnimalImage = ({ src, alt }: IAnimalImageProps) => {
         fill
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         className={clsx(
-          '!relative object-cover transition-all duration-300',
+          'relative! object-cover transition-all duration-300',
           isLoaded ? 'opacity-100' : 'opacity-0'
         )}
         src={src}

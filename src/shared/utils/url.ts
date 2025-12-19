@@ -4,5 +4,5 @@ export const getSearchURL = (params: URLSearchParams, url: string) => {
 
 export const getServiceURL = <T>(
   type: string,
-  upParams: Record<keyof T, string | number>
+  upParams: Record<keyof T, string | number | undefined>
 ) => getSearchURL(upParams as URLSearchParams, `/api/${type}`)

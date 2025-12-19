@@ -1,5 +1,5 @@
-import { Badge } from '@beborn/components/Badge'
-import KindImageIcon from '@beborn/components/KindImageIcon'
+import { KindImageIcon } from '@beborn/components/kind-image'
+import { StatusBadge } from '@beborn/components/status-badge'
 import { endDateBadgeType, noticeDateDiff } from '@beborn/shared'
 import Link from 'next/link'
 
@@ -27,9 +27,9 @@ const AnimalItem = ({ item }: IAnimalListItemProps) => {
             {item.age} · {item.weight}
           </p>
           <p className='cursor-default truncate text-xs text-[#676c76] lg:text-sm'>
-            <Badge type={endDateBadgeType(noticeSdt, noticeEdt)}>
+            <StatusBadge type={endDateBadgeType(noticeSdt, noticeEdt)}>
               종료 {noticeDateDiff(noticeSdt, noticeEdt)}일 전
-            </Badge>
+            </StatusBadge>
             &nbsp;
             {careNm}
           </p>

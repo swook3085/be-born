@@ -14,13 +14,24 @@ const compat = new FlatCompat({
 /** @type {import('eslint').Linter.Config[]} */
 export default tseslint.config(
   pluginJs.configs.recommended,
-  tseslint.configs.recommended,
-  {
-    plugins: {
-      react
-    }
-  },
+  ...tseslint.configs.recommended,
   ...compat.config({
     extends: ['next', 'next/core-web-vitals']
-  })
+  }),
+  {
+    rules: {
+      // Interface naming convention: require 'I' prefix
+      '@typescript-eslint/naming-convention': [
+        'error',
+        {
+          selector: 'interface',
+          format: ['PascalCase'],
+          custom: {
+            regex: '^I[A-Z]',
+            match: true
+          }
+        }
+      ]
+    }
+  }
 )

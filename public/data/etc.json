@@ -1,1 +1,1 @@
-{"response":{"header":{"reqNo":323968186,"resultCode":"00","resultMsg":"NORMAL SERVICE."},"body":{"items":{"item":[{"kindCd":"000117","knm":"기타축종"}]}}}}
+{"response":{"header":{"reqNo":34377311,"resultCode":"00","resultMsg":"NORMAL SERVICE."},"body":{"items":{"item":[{"kindCd":"000117","kindNm":"기타축종"}]},"numOfRows":10,"pageNo":1,"totalCount":1}}}
