@@ -102,3 +102,26 @@ export const selectPetList = async (
     return { list: [], page: 0, total: 0 }
   }
 }
+
+export const selectPetDetail = async (
+  desertionNo: string
+): Promise<IAnimalListItem | null> => {
+  const reqParams = {
+    desertion_no: desertionNo,
+    pageNo: 1,
+    numOfRows: 10
+  }
+
+  // getServiceURL이 자동으로 환경에 맞는 URL 생성
+  const url = getServiceURL('animal', reqParams)
+  const response = await baseFetch<IAnimalListItem[]>(url)
+
+  try {
+    const list = response.items.item || []
+    // 단일 아이템 또는 배열의 첫 번째 아이템 반환
+    return list.length > 0 ? list[0] : null
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}

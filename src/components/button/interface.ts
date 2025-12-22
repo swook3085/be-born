@@ -1,9 +1,10 @@
-import * as React from 'react'
+import type { VariantProps } from 'class-variance-authority'
+import type { ButtonHTMLAttributes } from 'react'
 
-export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
-  size?: 'default' | 'sm' | 'lg' | 'icon'
+import type { buttonVariants } from './variants'
+
+export interface IButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean
-  ref?: React.Ref<HTMLButtonElement>
 }
-

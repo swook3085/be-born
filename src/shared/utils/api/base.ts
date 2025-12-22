@@ -18,8 +18,7 @@ export type FnCustomFetch = <T = unknown>(
 export const fetchInterface: FnCustomFetch = async (url, option) => {
   try {
     const response = await fetch(url, {
-      ...option,
-      cache: 'force-cache'
+      ...option
     })
     if (!response.ok) {
       const responseText = await response.text()

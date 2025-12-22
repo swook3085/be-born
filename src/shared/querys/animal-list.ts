@@ -52,6 +52,8 @@ export const usePetList = (props: ISelectPetList) => {
       const hasMore = currentPage * PAGE_LIMIT < total
 
       return hasMore ? currentPage + 1 : undefined
-    }
+    },
+    staleTime: 1000 * 60 * 5, // 5분간 데이터를 fresh 상태로 유지
+    gcTime: 1000 * 60 * 30 // 30분간 캐시 유지
   })
 }
