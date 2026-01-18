@@ -29,7 +29,7 @@ export const Filter = () => {
   } = useFilterState()
 
   return (
-    <div className='sticky top-[60px] z-40 mb-6 space-y-4 bg-white pb-4 pt-4 lg:top-[70px]'>
+    <div className='sticky top-[60px] z-40 bg-white px-3 pb-3 pt-3 lg:top-[70px] lg:mb-6 lg:space-y-4 lg:px-0 lg:pb-4 lg:pt-4'>
       {/* 동물 종류 탭 */}
       <FilterTabs
         selectedAnimalType={selectedAnimalType}

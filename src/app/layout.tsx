@@ -1,6 +1,6 @@
 import './globals.css'
 
-import { Footer, Header } from '@beborn/components/layout'
+import { Footer, Header, MobileNav } from '@beborn/components/layout'
 import ReactQueryProviders from '@beborn/shared/providers/QueryProvider'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
@@ -19,10 +19,11 @@ export default function RootLayout({
     <html lang='ko'>
       <body className='bg-white'>
         <Header />
-        <main className='mx-auto max-w-7xl'>
+        <main className='mx-auto max-w-7xl pb-20 lg:pb-0'>
           <ReactQueryProviders>{children}</ReactQueryProviders>
         </main>
         <Footer />
+        <MobileNav />
         <SpeedInsights />
       </body>
     </html>

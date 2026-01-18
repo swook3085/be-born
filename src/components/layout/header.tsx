@@ -1,17 +1,9 @@
 'use client'
 
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger
-} from '@beborn/components/sheet'
 import clsx from 'clsx'
-import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ReactNode, useState } from 'react'
+import { ReactNode } from 'react'
 
 interface IHeaderProps {
   show?: boolean
@@ -26,7 +18,6 @@ const navigationItems = [
 
 export const Header = ({ children, show = true }: IHeaderProps) => {
   const pathname = usePathname()
-  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <header
@@ -47,40 +38,6 @@ export const Header = ({ children, show = true }: IHeaderProps) => {
             beborn
           </Link>
         </h1>
-
-        {/* 모바일 메뉴 */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger className='lg:hidden'>
-            <Menu className='h-6 w-6 text-gray-700' />
-          </SheetTrigger>
-          <SheetContent side='right' className='w-[280px]'>
-            <SheetHeader>
-              <SheetTitle className='text-left text-2xl font-bold text-primary'>
-                beborn
-              </SheetTitle>
-            </SheetHeader>
-            <nav className='mt-8 flex flex-col gap-6'>
-              {navigationItems.map((item) => {
-                const isActive = pathname === item.href
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={clsx(
-                      'text-lg font-bold transition-colors',
-                      isActive
-                        ? 'text-gray-900'
-                        : 'text-gray-600 hover:text-gray-900'
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                )
-              })}
-            </nav>
-          </SheetContent>
-        </Sheet>
 
         {/* 데스크톱 메뉴 */}
         <nav className='hidden items-center gap-10 lg:flex'>

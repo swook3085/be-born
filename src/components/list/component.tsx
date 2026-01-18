@@ -85,7 +85,7 @@ export const AnimalList = () => {
 
   return (
     <>
-      <ul className='grid auto-cols-max grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4 lg:grid-cols-4'>
+      <ul className='grid auto-cols-max grid-cols-2 gap-x-4 gap-y-4 md:grid-cols-4 lg:grid-cols-4'>
         {isListLoading
           ? initialSkeletonArray.map((_data, i) => (
               <AnimalItemSkelton key={i} />
