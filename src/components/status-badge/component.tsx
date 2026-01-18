@@ -19,7 +19,7 @@ export const StatusBadge = ({ children, type = 'info' }: IStatusBadgeProps) => {
 
   return (
     <span
-      className={`inline-block h-5 whitespace-nowrap px-2 text-center align-baseline text-xs font-medium leading-5 ${color.current} ${textColor.current} rounded-full`}
+      className={`inline-block h-5 whitespace-nowrap px-2.5 text-center align-baseline text-[10px] font-semibold leading-5 ${color.current} ${textColor.current} rounded-md shadow-sm`}
     >
       {children}
     </span>

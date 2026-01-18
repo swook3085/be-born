@@ -14,7 +14,6 @@ const AnimalItemSkelton = () => {
           <div className='h-4 w-[120px] rounded-full bg-gray-200 lg:h-5 lg:w-[120px]'></div>
           <div className='flex h-4 items-center lg:h-5'>
             <div className='h-4 w-20 rounded-full bg-gray-200 lg:h-5'></div>
-            <div className='ml-2 h-4 w-[100px] rounded-full bg-gray-200 lg:h-5'></div>
           </div>
         </div>
       </div>

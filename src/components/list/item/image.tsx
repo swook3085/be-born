@@ -14,12 +14,12 @@ export const AnimalImage = ({ src, alt }: IAnimalImageProps) => {
   }
 
   return (
-    <div className='aspect-square w-full overflow-hidden rounded-lg bg-gray-300'>
+    <div className='relative aspect-square w-full overflow-hidden bg-gray-100 rounded-xl'>
       <Image
         fill
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         className={clsx(
-          'relative! object-cover transition-all duration-300',
+          'relative! object-cover transition-transform duration-300 group-hover:scale-105',
           isLoaded ? 'opacity-100' : 'opacity-0'
         )}
         src={src}
@@ -27,6 +27,9 @@ export const AnimalImage = ({ src, alt }: IAnimalImageProps) => {
         onLoad={() => setIsLoaded(true)}
         onError={() => setIsError(true)}
       />
+      {!isLoaded && (
+        <div className='absolute inset-0 animate-pulse bg-gray-200' />
+      )}
     </div>
   )
 }

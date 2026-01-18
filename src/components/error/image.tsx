@@ -1,6 +1,6 @@
 export const ErrorImage = ({ className }: { className: string }) => {
   return (
-    <div className='aspect-square w-full overflow-hidden rounded-lg bg-gray-300'>
+    <div className='aspect-square w-full overflow-hidden rounded-xl bg-gray-300'>
       <div className='flex h-full w-full items-center justify-center'>
         <svg
           className={className}

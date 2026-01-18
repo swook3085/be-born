@@ -8,31 +8,49 @@ import type { IAnimalListItemProps } from './interface'
 
 const AnimalItem = ({ item }: IAnimalListItemProps) => {
   const { noticeSdt, noticeEdt, careNm, desertionNo } = item
+  const daysLeft = noticeDateDiff(noticeSdt, noticeEdt)
 
   return (
     <li>
-      <Link className='flex flex-col' href={`/detail/${desertionNo}`}>
-        <AnimalImage src={item.popfile1} alt={item.noticeNo} />
-        <div className='flex flex-col gap-1 pt-2'>
-          <h2 className='line-clamp-1 text-sm font-medium text-gray-900 lg:text-base'>
+      <Link
+        className='group relative flex flex-col overflow-hidden bg-white active:scale-[0.98]'
+        href={`/detail/${desertionNo}`}
+      >
+        {/* 이미지 영역 */}
+        <div className='relative'>
+          <AnimalImage src={item.popfile1} alt={item.noticeNo} />
+          {/* 상태 배지 - 이미지 상단 왼쪽 */}
+          <div className='absolute left-2 top-2 z-10'>
+            <StatusBadge type={endDateBadgeType(noticeSdt, noticeEdt)}>
+              종료 {daysLeft}일 전
+            </StatusBadge>
+          </div>
+        </div>
+
+        {/* 정보 영역 */}
+        <div className='flex flex-col gap-2 p-3'>
+          {/* 제목 */}
+          <h2 className='line-clamp-2 text-sm font-semibold leading-tight text-gray-900 lg:text-base'>
             {item.noticeNo}
           </h2>
-          <div className='truncate text-xs lg:text-sm'>
-            <div className='flex items-center'>
-              <KindImageIcon upKindCd={item.upKindCd} />
-              <p className='ml-1 text-black'>{item.kindNm}</p>
-            </div>
+
+          {/* 품종 */}
+          <div className='flex items-center gap-1.5'>
+            <KindImageIcon upKindCd={item.upKindCd} />
+            <p className='truncate text-xs font-medium text-gray-700 lg:text-sm'>
+              {item.kindNm}
+            </p>
           </div>
-          <p className='truncate text-xs text-black lg:text-sm'>
-            {item.age} · {item.weight}
-          </p>
-          <p className='truncate text-xs text-[#676c76] lg:text-sm'>
-            <StatusBadge type={endDateBadgeType(noticeSdt, noticeEdt)}>
-              종료 {noticeDateDiff(noticeSdt, noticeEdt)}일 전
-            </StatusBadge>
-            &nbsp;
-            {careNm}
-          </p>
+
+          {/* 나이/체중 */}
+          <div className='flex items-center gap-1.5 text-xs text-gray-600 lg:text-sm'>
+            <span>{item.age}</span>
+            <span className='text-gray-300'>·</span>
+            <span>{item.weight}</span>
+          </div>
+
+          {/* 보호소명 */}
+          <p className='truncate text-xs text-gray-500 lg:text-sm'>{careNm}</p>
         </div>
       </Link>
     </li>
